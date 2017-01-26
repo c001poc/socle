@@ -1,0 +1,29 @@
+version: "2"
+
+services:
+  web:
+    image: c001pocsocle/socle:latest
+    ports:
+    - "8080:8080"
+    depends_on:
+    - pgsql
+  
+  pgsql:
+    image: c001pocsocle/sgbd:9.3
+    ports:
+    - "5432:5432"
+    volumes:
+    - "data:/var/lib/postgresql/data"
+    
+  db-admin:
+    image: c001pocsocle/sgbd-admin:9.3
+    ports:
+    - "4080:80"
+    links:
+    - pgsql
+    depends_on:
+    - pgsql
+ 
+volumes:
+ data:
+    external: true
