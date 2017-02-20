@@ -67,7 +67,7 @@ RUN set -x \
 	&& nativeBuildDeps=" \
 		gcc \
 		libapr1-dev \
-		libssl-dev \
+#		libssl-dev \
 		make \
 		openjdk-${JAVA_VERSION%%[-~bu]*}-jdk=$JAVA_DEBIAN_VERSION \
 	" \
